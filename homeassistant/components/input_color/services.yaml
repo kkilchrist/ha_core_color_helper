@@ -1,0 +1,107 @@
+set_color:
+  description: "Set the color of an input_color entity. You can provide either a hex value, RGB, or HSV, or set individual color components. Only one parameter (hex_value, rgb_value, hsv_value, or individual components) should be provided. If multiple parameters are provided, the system will prioritize hex_value, then RGB, then HSV, and finally individual components."
+  target:
+    entity:
+      domain: input_color
+  fields:
+    hex_value:
+      description: "The color value to set in HEX format (e.g., #FF5733). Corresponds to the 'hex_value' parameter. # is optional, do not include quotes."
+      example: "#FF5733"
+      selector:
+        text:
+          type: text
+          min: 6
+          max: 7
+    rgb_value:
+      description: "A dictionary of RGB components, e.g., {\"red\": 255, \"green\": 255, \"blue\": 255}. Can be specified as r, g, b or red, green, blue. Corresponds to the 'rgb_value' parameter."
+      example: '{"red": 255, "green": 255, "blue": 255}'
+      selector:
+        object:
+          properties:
+            red:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: "Red component (0-255)"
+            green:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: "Green component (0-255)"
+            blue:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: "Blue component (0-255)"
+    hsv_value:
+      description: "A dictionary of HSV components, e.g., {\"h\": 0.1, \"s\": 0.9, \"v\": 0.8}. Hue (h), Saturation (s), and Value (v) should be provided as floats (decimal numbers) between 0 and 1. Can be specified as hue, saturation, value or hue, sat, val or h, s, v."
+      example: "{\"hue\": 0.1, \"saturation\": 0.9, \"value\": 0.8}"
+      selector:
+        object:
+          properties:
+            h:
+              type: number
+              minimum: 0
+              maximum: 1
+              description: "Hue (0-1 range)"
+            s:
+              type: number
+              minimum: 0
+              maximum: 1
+              description: "Saturation (0-1 range)"
+            v:
+              type: number
+              minimum: 0
+              maximum: 1
+              description: "Value/Brightness (0-1 range)"
+    red:
+      description: "The red component (0-255)."
+      example: 255
+      selector:
+        number:
+          min: 0
+          max: 255
+          mode: slider
+    green:
+      description: "The green component (0-255)."
+      example: 87
+      selector:
+        number:
+          min: 0
+          max: 255
+          mode: slider
+    blue:
+      description: "The blue component (0-255)."
+      example: 51
+      selector:
+        number:
+          min: 0
+          max: 255
+          mode: slider
+    hue:
+      description: "The hue component (0-1 range)."
+      example: 0.1
+      selector:
+        number:
+          min: 0
+          max: 1
+          step: 0.01
+          mode: slider
+    saturation:
+      description: "The saturation component (0-1 range)."
+      example: 0.9
+      selector:
+        number:
+          min: 0
+          max: 1
+          step: 0.01
+          mode: slider
+    value:
+      description: "The value (brightness) component (0-1 range)."
+      example: 0.8
+      selector:
+        number:
+          min: 0
+          max: 1
+          step: 0.01
+          mode: slider

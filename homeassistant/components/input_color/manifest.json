@@ -1,0 +1,9 @@
+{
+  "domain": "input_color",
+  "name": "Input Color",
+  "version": "0.0.1",
+  "documentation": "https://github.com/kkilchrist/ha_core_input_color/tree/dev/homeassistant/components/input_color",
+  "codeowners": ["@kkilchrist"],
+  "integration_type": "helper"
+}
+

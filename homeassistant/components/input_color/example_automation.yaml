@@ -1,0 +1,13 @@
+description: Set my RGB light based on input_color.my_color_helper
+trigger:
+  - platform: state
+    entity_id:
+      - input_color.my_color_helper
+condition: []
+action:
+  - target:
+      entity_id: light.my_rgb_light
+    data_template:
+      rgb_color: "{{ state_attr('input_color.my_color_helper', 'rgb_color') }}"
+    action: light.turn_on
+mode: single

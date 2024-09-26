@@ -1,0 +1,58 @@
+alias: Test input_color.set_color with actions
+sequence:
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      hex_value: "#AABBCC"
+  - delay: "00:00:01"
+
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      rgb_value:
+        red: 10
+        green: 100
+        blue: 255
+  - delay: "00:00:01"
+
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      hsv_value:
+        h: 0.6
+        s: 1
+        v: 1
+  - delay: "00:00:01"
+
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      hsv_value:
+        h: 0.1
+        s: 1
+        v: 1
+  - delay: "00:00:01"
+
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      hsv_value:
+        h: 0.3
+        s: 1
+        v: 1
+  - delay: "00:00:01"
+
+  - action: input_color.set_color
+    target:
+      entity_id: input_color.my_color_helper
+    data:
+      hsv_value:
+        h: 0.7
+        s: 1
+        v: 1
+description: Test the input color changes based on different color formats.
